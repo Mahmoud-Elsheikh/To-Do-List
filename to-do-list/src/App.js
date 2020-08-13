@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import TextInput from './TextInput'
+import Todo from './todo'
 function App() {
   return (
     <div className="App">
-     <TextInput></TextInput>
+    <Todo></Todo>
     </div>
   );
 }
