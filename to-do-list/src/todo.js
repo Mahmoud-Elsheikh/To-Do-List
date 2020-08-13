@@ -7,22 +7,23 @@ class Todo extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
-      todos: [""],
-      inputText: 'initial text'
+      todos: [{text: "Inital",completed: false}]
     }
   }
 
-  handleChange(event) { 
+  addTodo(inputText) { 
     this.setState({
-      inputText: event.target.value
+      todos: [...this.state.todos, {text:inputText, completed: false}]
     })
   }
+
+
 
   render() {
     return (
       <div>
-        <Input></Input>
-        <List inputText={this.state.inputText}></List>
+        <Input addTodo={this.addTodo.bind(this)}></Input>
+        <List todos={this.state.todos}></List>
       </div>
     )
   }
