@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
+import ListItem from './list_item'
 
 class List extends Component {
 
   render() {
-    return <div>I'm displaying text from my parent: {this.props.inputText}</div>
+    return <ul>
+       {
+          this.props.todos.map((todo) => {
+            return <ListItem todo={todo}/>
+          })
+        }
+    </ul>
   }
 
 }
