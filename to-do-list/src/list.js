@@ -6,9 +6,7 @@ class List extends Component {
   render() {
     return <ul>
        {
-          this.props.todos.map((todo) => {
-            return <ListItem todo={todo}/>
-          })
+         this.props.todos.map((todo,idx) => <ListItem key={idx} todo={todo} delTodo={this.props.delTodo}/>)
         }
     </ul>
   }

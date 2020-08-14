@@ -7,7 +7,7 @@ class Todo extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
-      todos: [{text: "Inital",completed: false}]
+      todos: [{id:0, text: "Inital",completed: false}]
     }
   }
 
@@ -17,13 +17,20 @@ class Todo extends Component {
     })
   }
 
+  delTodo(id){
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.id !== id)
+    })
+  }
+
+
 
 
   render() {
     return (
       <div>
         <Input addTodo={this.addTodo.bind(this)}></Input>
-        <List todos={this.state.todos}></List>
+        <List todos={this.state.todos} delTodo={this.delTodo.bind(this)}></List>
       </div>
     )
   }
