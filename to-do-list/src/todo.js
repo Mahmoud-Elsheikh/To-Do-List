@@ -16,7 +16,6 @@ class Todo extends Component {
      this.setState({
       todos: final
     })
-    console.log(final) 
   }
 
   addTodo(inputText) { 
@@ -30,8 +29,10 @@ class Todo extends Component {
   }
 
   completeTodo(todo){
+     var modified = this.state.todos.slice()
+     modified[todo.id] = {id:todo.id, text:todo.text, completed: !todo.completed}
     this.setState({
-      todos: [...(this.state.todos.filter(todoitem => todoitem.id !== todo.id)), {id:todo.id, text:todo.text, completed: !todo.completed}]
+      todos: modified
     })
   }
 
