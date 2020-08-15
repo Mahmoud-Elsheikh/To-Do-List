@@ -23,14 +23,18 @@ class Todo extends Component {
     })
   }
 
-
+  completeTodo(todo){
+    this.setState({
+      todos: [...(this.state.todos.filter(todoitem => todoitem.id !== todo.id)), {id:todo.id, text:todo.text, completed: !todo.completed}]
+    })
+  }
 
 
   render() {
     return (
       <div>
         <Input addTodo={this.addTodo.bind(this)}></Input>
-        <List todos={this.state.todos} delTodo={this.delTodo.bind(this)}></List>
+        <List todos={this.state.todos} delTodo={this.delTodo.bind(this)} completeTodo={this.completeTodo.bind(this)}></List>
       </div>
     )
   }
