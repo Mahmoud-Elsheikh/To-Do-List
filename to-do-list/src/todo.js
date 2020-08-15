@@ -7,20 +7,26 @@ class Todo extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
-      todos: [{id:0, text: "Inital",completed: false}]
+      todos: []
     }
   }
 
-  addTodo(inputText) { 
-    this.setState({
-      todos: [...this.state.todos, {text:inputText, completed: false}]
+  recalibrate(initial){ 
+     var final =  initial.map((todo,idx) => {return {id: idx, text: todo.text, completed: todo.completed}})
+     this.setState({
+      todos: final
     })
+    console.log(final) 
+  }
+
+  addTodo(inputText) { 
+    var initial = [...this.state.todos, {id:0, text:inputText, completed: false}]
+    this.recalibrate(initial)
   }
 
   delTodo(id){
-    this.setState({
-      todos: this.state.todos.filter(todo => todo.id !== id)
-    })
+    var initial = this.state.todos.filter(todo => todo.id !== id)
+    this.recalibrate(initial)
   }
 
   completeTodo(todo){

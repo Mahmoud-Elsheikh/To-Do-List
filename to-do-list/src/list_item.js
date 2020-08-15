@@ -13,11 +13,11 @@ class ListItem extends Component {
   }
 
   render() {
-    return <l1>
+    return <li>
           <div>{this.props.todo.text}</div>
           <button onClick={this.complete.bind(this)}>Complete</button>
           <button onClick={this.delete.bind(this)}>X</button>
-          </l1>
+          </li>
   }
 
 }
