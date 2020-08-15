@@ -12,7 +12,10 @@ class TextInput extends Component {
 
   Submit(event) {
     event.preventDefault()
-    this.props.addTodo(this.state.inputText)
+    var text= this.state.inputText
+    if (text!==""){
+      this.props.addTodo(this.state.inputText)
+    }
     this.setState({inputText: ""})
   }
 
