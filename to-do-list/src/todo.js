@@ -39,7 +39,7 @@ class Todo extends Component {
 
   render() {
     return (
-      <div>
+      <div class="outside_flex">
         <Input addTodo={this.addTodo.bind(this)}></Input>
         <List todos={this.state.todos} delTodo={this.delTodo.bind(this)} completeTodo={this.completeTodo.bind(this)}></List>
       </div>

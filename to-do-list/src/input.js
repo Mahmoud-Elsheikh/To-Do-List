@@ -5,7 +5,7 @@ class TextInput extends Component {
   constructor(props, context) {
     super(props, context)
     this.state={
-      inputText: 'initial text'
+      inputText: ''
     }
   }
 
@@ -30,10 +30,11 @@ class TextInput extends Component {
       <form onSubmit={this.Submit.bind(this)}>
         <input onChange={this.handleChange.bind(this)}
           type="text"
-          placeholder="This is going to be text"
+          class = "input"
+          placeholder="Write a new Task..."
           value={this.state.inputText}
         />
-        <input type="submit" text="+"/>
+        <input class="submit" type="submit"/>
       </form>
     )
   }
